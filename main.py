@@ -5,7 +5,7 @@ app = FastAPI()
 
 @app.get( "/")
 def read_root():
-    return { "Hello": "瘋狂的FastAPI, 這里是分支 ADD"}
+    return { "Hello": "瘋狂的FastAPI, 這里是分支 Branch sub1/sub2"}
 
 @app.get( "/blog/{id}")
 def get_blog( id: int):
