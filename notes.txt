@@ -1,4 +1,56 @@
-xxx
-在Python眾多的框架中，FastAPI雖然名氣可能還不如Flask或Django那麼大，但卻有著自己獨特的魅力：
-它的執行速度超快、使用起來簡單直覺，而且還能自動產生API文件，讓你的開發過程變得輕鬆愉快。
+Jenkins:
+    Jenkins 的 pipeline 是一組 plugin，可支援實作以及將持續整合 pipeline 整合至 Jenkins 中，而持續整合 pipeline 是一個自動化的表達式 (automated expression)，表現了軟體由版本控制系統到用戶的全部過程。
+    Pipeline 中文一般會翻成管線，大概是「有順序性的階段或步驟的總合」類似這樣的意思。
 
+    安裝 java: sudo apt install default-jre
+    安裝 docker:
+        for pkg in docker.io docker-doc docker-compose podman-docker containerd runc; do sudo apt-get remove $pkg; done
+        curl -fsSL https://get.docker.com -o get-docker.sh
+        sudo sh get-docker.sh
+
+    執行 jenkins
+        cd ~/jenkins
+        java -jar jenkins.war --httpPort=8088
+        http://localhost:8088
+            pwd: cd4876111e294a1495106557edb0d0d5
+
+vue:
+    執行:
+        cd ~/fastapi_vue
+        npm run serve
+    安裝:
+        sudo apt install nodejs npm
+        sudo npm install -g @vue/cli
+        vue create fastapi_vue
+
+fastapi:
+    執行:
+        點擊 pycharm
+        在【終端】中運行
+            uvicorn main:app --host 10.211.55.55 --reload
+    安裝:
+        cd ~/fastapi
+        python3 -m venv venv
+        source venv/bin/activate
+        pip install fastapi uvicorn
+        uvicorn main:app --reload
+
+arangodb:
+    config file: /etc/arangodb3/arangod.conf
+    Use apt-get to install arangodb:
+        echo 'deb https://download.arangodb.com/arangodb312/DEBIAN/ /' | sudo tee /etc/apt/sources.list.d/arangodb.list
+        sudo apt-get install apt-transport-https
+        sudo apt-get update
+        sudo apt-get install arangodb3=3.12.3-1
+
+    使用以下命令启动ArangoDB服务，并使其在系统启动时自动启动：
+
+        sudo systemctl start arangodb3
+        sudo systemctl enable arangodb3
+        最后，使用以下命令验证ArangoDB服务的状态：
+
+        sudo systemctl status arangodb3
+        如果服务正在运行并已启用，您将看到active状态
+
+    在浏览器的地址栏中输入 http://localhost:8529。
+    默认的用户名通常是 root
